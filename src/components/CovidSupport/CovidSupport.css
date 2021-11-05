@@ -1,0 +1,20 @@
+.i-logo {
+    width: 38px;
+    cursor: "pointer";
+}
+
+.covid-support {
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+    .covid-support {
+        font-size: 13px;
+    }
+    .i-logo {
+        width: 32px;
+    }
+}

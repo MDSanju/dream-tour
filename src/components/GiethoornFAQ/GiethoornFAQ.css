@@ -1,0 +1,9 @@
+.image-custom {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .image-custom {
+        margin-bottom: 45px;
+    }
+}

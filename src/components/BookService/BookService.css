@@ -1,0 +1,14 @@
+.card-custom {
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    transition: .3s ease box-shadow;
+    cursor: pointer;
+}
+
+.card-custom:hover {
+    box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+.card-btn {
+    background-color: white;
+    border: none;
+}

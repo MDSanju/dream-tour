@@ -1,0 +1,16 @@
+.footer-container {
+    background-color: #0c2461;
+    color: white;
+    margin-top: 100px;
+    padding-top: 64px;
+    padding-bottom: 5px;
+}
+
+.footer-items p:hover {
+    color: #c5c6c7;
+    cursor: pointer;
+}
+
+.open-time p:hover {
+    color: white;
+}
