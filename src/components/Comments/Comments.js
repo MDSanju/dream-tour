@@ -88,14 +88,14 @@ const Comments = () => {
         {comments.map((comment) => (
           <div key={comment._id}>
             <div className="row d-flex align-items-center">
-              <div className="col-12 col-sm-8 col-md-8">
+              <div className="col-12 col-sm-10 col-md-10">
                 <small style={{ fontSize: "14px" }} className="fw-bold">
                   {comment.name}
                 </small>
                 <br />
                 <small style={{ fontSize: "14px" }}>{comment.comment}</small>
               </div>
-              <div className="col-12 col-sm-4 col-md-4">
+              {/* <div className="col-12 col-sm-4 col-md-4">
                 <div
                   className="btn-group mt-1"
                   role="group"
@@ -108,7 +108,7 @@ const Comments = () => {
                     Delete
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
             <br />
           </div>
