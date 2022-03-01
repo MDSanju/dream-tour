@@ -1,3 +1,14 @@
+.sign-in-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.login-page-image {
+    width: 600px;
+}
+
 .google-login-btn {
     background-color: #4f86ec;
     color: white;
@@ -11,4 +22,28 @@
 
 .google-login-btn:hover {
     background-color: #3b70d3;
+}
+
+@media screen and (max-width: 900px) {
+    .login-page-image {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sign-in-page {
+        flex-direction: column;
+    }
+    .login-page-image {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sign-in-page {
+        flex-direction: column;
+    }
+    .login-page-image {
+        width: 100%;
+    }
 }
