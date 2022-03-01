@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookService from "../BookService/BookService";
+import HashLoader from "react-spinners/HashLoader";
 
 // services section component on Home Page, all data reload from mongodb
 const Booking = () => {
@@ -35,13 +36,25 @@ const Booking = () => {
       <h2 className="container mt-5 fw-bold mb-5">
         Please Book Your Favourite Tour Service!
       </h2>
-      <div className="container">
-        <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
-          {services.map((service) => (
-            <BookService key={service._id} service={service}></BookService>
-          ))}
+      {services.length ? (
+        <div className="container">
+          <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
+            {services.map((service) => (
+              <BookService key={service._id} service={service}></BookService>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "38px",
+          }}
+        >
+          <HashLoader color={"#140b5c"} size={60} />
+        </div>
+      )}
     </div>
   );
 };

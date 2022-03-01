@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import HashLoader from "react-spinners/HashLoader";
 
 // Home page comment section
 const Comments = () => {
@@ -83,19 +84,20 @@ const Comments = () => {
         />
       </form>
       {/* show comments on UI */}
-      <div className="text-start mt-5">
-        <h3 className="mb-3">{comments.length} Comments:</h3>
-        {comments.map((comment) => (
-          <div key={comment._id}>
-            <div className="row d-flex align-items-center">
-              <div className="col-12 col-sm-10 col-md-10">
-                <small style={{ fontSize: "14px" }} className="fw-bold">
-                  {comment.name}
-                </small>
-                <br />
-                <small style={{ fontSize: "14px" }}>{comment.comment}</small>
-              </div>
-              {/* <div className="col-12 col-sm-4 col-md-4">
+      {comments.length ? (
+        <div className="text-start mt-5">
+          <h3 className="mb-3">{comments.length} Comments:</h3>
+          {comments.map((comment) => (
+            <div key={comment._id}>
+              <div className="row d-flex align-items-center">
+                <div className="col-12 col-sm-10 col-md-10">
+                  <small style={{ fontSize: "14px" }} className="fw-bold">
+                    {comment.name}
+                  </small>
+                  <br />
+                  <small style={{ fontSize: "14px" }}>{comment.comment}</small>
+                </div>
+                {/* <div className="col-12 col-sm-4 col-md-4">
                 <div
                   className="btn-group mt-1"
                   role="group"
@@ -109,11 +111,22 @@ const Comments = () => {
                   </button>
                 </div>
               </div> */}
+              </div>
+              <br />
             </div>
-            <br />
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "40px",
+          }}
+        >
+          <HashLoader color={"#140b5c"} size={60} />
+        </div>
+      )}
     </div>
   );
 };
