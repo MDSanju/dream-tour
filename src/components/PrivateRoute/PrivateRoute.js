@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
+import { HashLoader } from "react-spinners";
 import useAuth from "../../hooks/useAuth";
 
 // private route setup
@@ -9,11 +10,13 @@ const PrivateRoute = ({ children, ...rest }) => {
   if (isLoading) {
     return (
       <div
-        className="spinner-border text-dark"
-        style={{ marginTop: "35vh" }}
-        role="status"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "35vh",
+        }}
       >
-        <span className="visually-hidden">Loading...</span>
+        <HashLoader color={"#140b5c"} size={60} />
       </div>
     );
   }

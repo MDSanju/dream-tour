@@ -5,6 +5,7 @@ import Booking from "../Booking/Booking";
 import Comments from "../Comments/Comments";
 import CovidSupport from "../CovidSupport/CovidSupport";
 import GiethoornFAQ from "../GiethoornFAQ/GiethoornFAQ";
+import HashLoader from "react-spinners/HashLoader";
 
 // Main Home Page
 const Home = () => {
@@ -14,11 +15,13 @@ const Home = () => {
   if (isLoading) {
     return (
       <div
-        className="spinner-border text-dark"
-        style={{ marginTop: "35vh" }}
-        role="status"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "35vh",
+        }}
       >
-        <span className="visually-hidden">Loading...</span>
+        <HashLoader color={"#140b5c"} size={60} />
       </div>
     );
   }

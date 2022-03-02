@@ -9,15 +9,15 @@ const GiethoornFAQ = () => {
         FAQs about Hotels in Giethoorn!
       </h2>
       <div className="row d-flex align-items-center">
-        <div className="col-12 col-sm-12 col-md-5">
+        <div className="col-12 col-sm-12 col-md-6">
           <img
             className="container-fluid image-custom"
             style={{ height: "510px" }}
-            src="https://i.ibb.co/nbs05wW/ercan-er-h86kn-RTu-PY0-unsplash.jpg"
+            src="https://i.ibb.co/HKyGtwD/kisspng-travel-drawing-tourism-illustration-city-tour-5aa6e0261c3675-9692355215208857981156-removebg.png"
             alt=""
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-7">
+        <div className="col-12 col-sm-12 col-md-6">
           <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingOne">
