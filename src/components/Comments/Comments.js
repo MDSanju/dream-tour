@@ -1,12 +1,78 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import HashLoader from "react-spinners/HashLoader";
+import InputUnstyled from "@mui/base/InputUnstyled";
+import { styled } from "@mui/system";
+import { Box, Button, TextField } from "@mui/material";
+import { AccountCircle } from "@material-ui/icons";
+import SendIcon from "@material-ui/icons/Send";
+import LoadingButton from "@mui/lab/LoadingButton";
+import "./Comments.css";
+
+const blue = {
+  100: "#DAECFF",
+  200: "#80BFFF",
+  400: "#3399FF",
+  600: "#0072E5",
+};
+
+const grey = {
+  50: "#F3F6F9",
+  100: "#E7EBF0",
+  200: "#E0E3E7",
+  300: "#CDD2D7",
+  400: "#B2BAC2",
+  500: "#A0AAB4",
+  600: "#6F7E8C",
+  700: "#3E5060",
+  800: "#2D3843",
+  900: "#1A2027",
+};
+
+const StyledInputElement = styled("input")(
+  ({ theme }) => `
+  width: 300px;
+  font-size: 0.875rem;
+  font-family: IBM Plex Sans, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+  background: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+  border: 1px solid ${theme.palette.mode === "dark" ? grey[800] : grey[300]};
+  border-radius: 8px;
+  padding: 12px 12px;
+
+  &:hover {
+    background: ${theme.palette.mode === "dark" ? "" : grey[100]};
+    border-color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
+  }
+
+  &:focus {
+    outline: 3px solid ${theme.palette.mode === "dark" ? blue[600] : blue[100]};
+  }
+`
+);
+
+const CustomInput = React.forwardRef(function CustomInput(props, ref) {
+  return (
+    <InputUnstyled
+      components={{ Input: StyledInputElement }}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 // Home page comment section
 const Comments = () => {
   const { user } = useAuth();
   const [comments, setComments] = useState([]);
+
+  const [loading, setLoading] = React.useState(false);
+  function handleClick() {
+    setLoading(true);
+  }
 
   const {
     register,
@@ -57,16 +123,59 @@ const Comments = () => {
   // use react hook form for comment section
   return (
     <div className="container" style={{ marginTop: "125px" }}>
-      <h2 className="mb-5 fw-bold">Please Write Your Comment Down Below!</h2>
+      <h2 className="mb-5 fw-bold text-center">
+        Please Write Your Comment Down Below!
+      </h2>
+      <br />
+      <br />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+        <CustomInput
+          defaultValue={user.displayName}
+          {...register("name", { required: true })}
+          placeholder="Write your Name..."
+        />
+        <br />
+        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+          <TextField
+            id="input-with-sx"
+            label="Add a comment..."
+            variant="standard"
+            sx={{ width: "100%" }}
+            {...register("comment", { required: true })}
+          />
+        </Box>
+
+        <br />
+        {/* <LoadingButton
+          onClick={handleClick}
+          endIcon={<SendIcon />}
+          loading={loading}
+          loadingPosition="end"
+          type="submit"
+          variant="contained"
+          sx={{ float: "right" }}
+        >
+          Comment
+        </LoadingButton> */}
+
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ float: "right" }}
+          endIcon={<SendIcon />}
+        >
+          Comment
+        </Button>
+
+        {/* <input
           className="form-control"
           defaultValue={user.displayName}
           {...register("name", { required: true })}
           placeholder="Write your Name"
-        />
+        /> */}
 
-        <textarea
+        {/* <textarea
           className="form-control mt-3 mb-1"
           style={{ height: "125px" }}
           {...register("comment", { required: true })}
@@ -81,8 +190,11 @@ const Comments = () => {
           className="btn btn-primary w-100 mt-3 mx-auto"
           type="submit"
           value="Comment"
-        />
+        /> */}
       </form>
+      <br />
+      <br />
+      <br />
       {/* show comments on UI */}
       {comments.length ? (
         <div className="text-start mt-5">

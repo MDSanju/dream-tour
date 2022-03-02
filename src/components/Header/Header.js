@@ -61,6 +61,13 @@ const Header = () => {
               >
                 My Orders
               </NavLink>
+              <NavLink
+                className="nav-link"
+                activeStyle={{ color: "white" }}
+                to="/contactUs"
+              >
+                Contact Us
+              </NavLink>
               {user.email && (
                 <span
                   className="navbar-text"

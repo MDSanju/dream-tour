@@ -12,6 +12,7 @@ import AddService from "./components/AddService/AddService";
 import ManageAllOrders from "./components/ManageAllOrders/ManageAllOrders";
 import MyOrders from "./components/MyOrders/MyOrders";
 import ApprovedOrder from "./components/ApprovedOrder/ApprovedOrder";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/approved/order">
               <ApprovedOrder></ApprovedOrder>
+            </PrivateRoute>
+            <PrivateRoute path="/contactUs">
+              <ContactForm></ContactForm>
             </PrivateRoute>
             <Route path="*">
               <NoMatch></NoMatch>

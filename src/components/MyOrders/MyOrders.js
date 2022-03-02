@@ -52,7 +52,7 @@ const MyOrders = () => {
   };
   // show only user's orders on UI
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h2 className="fw-bold mt-5 mb-4">My All Orders!</h2>
       {orders.length ? (
         <div className="container">

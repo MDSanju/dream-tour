@@ -69,7 +69,7 @@ const ManageAllOrders = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h2 className="mt-5 fw-bold mb-4">Manage All Orders!</h2>
       {orders.length ? (
         <div className="container">
