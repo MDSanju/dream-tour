@@ -13,6 +13,8 @@ import ManageAllOrders from "./components/ManageAllOrders/ManageAllOrders";
 import MyOrders from "./components/MyOrders/MyOrders";
 import ApprovedOrder from "./components/ApprovedOrder/ApprovedOrder";
 import ContactForm from "./components/ContactForm/ContactForm";
+import MakeAdmin from "./components/MakeAdmin/MakeAdmin";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -30,21 +32,24 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <PrivateRoute path="/add/service">
+            <AdminRoute path="/add/service">
               <AddService></AddService>
-            </PrivateRoute>
+            </AdminRoute>
             <PrivateRoute path="/order/:serviceId">
               <OrderPlace></OrderPlace>
             </PrivateRoute>
-            <PrivateRoute path="/manageAllOrders">
+            <AdminRoute path="/manageAllOrders">
               <ManageAllOrders></ManageAllOrders>
-            </PrivateRoute>
+            </AdminRoute>
             <PrivateRoute path="/myOrders">
               <MyOrders></MyOrders>
             </PrivateRoute>
             <PrivateRoute path="/approved/order">
               <ApprovedOrder></ApprovedOrder>
             </PrivateRoute>
+            <AdminRoute path="/makeAdmin">
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
             <PrivateRoute path="/contactUs">
               <ContactForm></ContactForm>
             </PrivateRoute>

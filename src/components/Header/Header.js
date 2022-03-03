@@ -5,7 +5,7 @@ import "./Header.css";
 
 // Header Top Navbar with bootstrap
 const Header = () => {
-  const { user, logout } = useAuth();
+  const { user, admin, logout } = useAuth();
   return (
     <div className="header-navbar">
       <nav className="navbar navbar-expand-lg navbar-dark header-navbar">
@@ -40,34 +40,49 @@ const Header = () => {
               >
                 Home
               </NavLink>
-              <NavLink
-                className="nav-link"
-                activeStyle={{ color: "white" }}
-                to="/add/service"
-              >
-                Add A New Service
-              </NavLink>
-              <NavLink
-                className="nav-link"
-                activeStyle={{ color: "white" }}
-                to="/manageAllOrders"
-              >
-                Manage All Orders
-              </NavLink>
-              <NavLink
-                className="nav-link"
-                activeStyle={{ color: "white" }}
-                to="/myOrders"
-              >
-                My Orders
-              </NavLink>
-              <NavLink
-                className="nav-link"
-                activeStyle={{ color: "white" }}
-                to="/contactUs"
-              >
-                Contact Us
-              </NavLink>
+              {admin && (
+                <NavLink
+                  className="nav-link"
+                  activeStyle={{ color: "white" }}
+                  to="/add/service"
+                >
+                  Add A New Service
+                </NavLink>
+              )}
+              {admin ? (
+                <NavLink
+                  className="nav-link"
+                  activeStyle={{ color: "white" }}
+                  to="/manageAllOrders"
+                >
+                  Manage All Orders
+                </NavLink>
+              ) : (
+                <NavLink
+                  className="nav-link"
+                  activeStyle={{ color: "white" }}
+                  to="/myOrders"
+                >
+                  My Orders
+                </NavLink>
+              )}
+              {admin ? (
+                <NavLink
+                  className="nav-link"
+                  activeStyle={{ color: "white" }}
+                  to="/makeAdmin"
+                >
+                  Make Admin
+                </NavLink>
+              ) : (
+                <NavLink
+                  className="nav-link"
+                  activeStyle={{ color: "white" }}
+                  to="/contactUs"
+                >
+                  Contact Us
+                </NavLink>
+              )}
               {user.email && (
                 <span
                   className="navbar-text"

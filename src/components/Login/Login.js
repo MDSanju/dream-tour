@@ -8,19 +8,13 @@ const Login = () => {
   const { signInUsingGoogle } = useAuth();
   // fixed the redirect url issue
   const location = useLocation();
-  const history = useHistory();
-  const redirect_url = location.state?.from || "/";
+  
+  
+  const redirectUriHistory = useHistory();
 
   // website login with Google Authentication
   const handleGoogleLogin = () => {
-    signInUsingGoogle()
-      .then((result) => {
-        history.push(redirect_url);
-      })
-      .then((error) => {
-        history.push(redirect_url);
-      })
-      .finally(() => history.push(redirect_url));
+    signInUsingGoogle(location, redirectUriHistory);
   };
 
   return (
