@@ -31,8 +31,10 @@ const AddService = () => {
 
   // used react hook form to add new service to mongodb and on the UI as well
   return (
-    <div>
-      <h2 className="mt-5 fw-bold">Add A New Service!</h2>
+    <div style={{ marginTop: "75px", marginBottom: "125px" }}>
+      <h2 className="mt-5 add-font-family text-center add-font-family">
+        Add A New Service!
+      </h2>
       <div className="add-new-service col-10 col-sm-10 col-md-6 mx-auto">
         <form className="add-neworder-form" onSubmit={handleSubmit(onSubmit)}>
           <input

@@ -19,7 +19,12 @@ const Login = () => {
 
   return (
     <div style={{ marginTop: "75px" }}>
-      <h1 style={{ fontSize: "3rem" }}>Please Sign In!</h1>
+      <h1
+        className="add-font-family"
+        style={{ fontSize: "3rem", textAlign: "center" }}
+      >
+        Please Sign In!
+      </h1>
       <div className="sign-in-page">
         <img
           className="login-page-image"

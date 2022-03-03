@@ -22,27 +22,6 @@ const BookService = ({ service }) => {
   };
 
   return (
-    // <div>
-    //   <div className="col">
-    //     <div className="card card-custom">
-    //       <img
-    //         style={{ height: "250px" }}
-    //         src={img}
-    //         className="card-img-top"
-    //         alt="..."
-    //       />
-    //       <div className="card-body">
-    //         <h5 className="card-title">{title}</h5>
-    //         <p className="card-text">{description}</p>
-    //       </div>
-    //       <div className="mb-4 card-btn">
-    //         <button onClick={handleBookNow} className="btn btn-primary mx-auto">
-    //           Book Now
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <Grid item xs={4} sm={4} md={4}>
       <Card>
         <CardActionArea>

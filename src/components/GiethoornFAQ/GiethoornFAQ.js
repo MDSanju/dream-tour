@@ -5,7 +5,7 @@ import "./GiethoornFAQ.css";
 const GiethoornFAQ = () => {
   return (
     <div className="container text-start" style={{ marginTop: "125px" }}>
-      <h2 className="fw-bold text-center mb-5">
+      <h2 className="text-center mb-5 add-font-family">
         FAQs about Hotels in Giethoorn!
       </h2>
       <div className="row d-flex align-items-center">
@@ -17,7 +17,7 @@ const GiethoornFAQ = () => {
             alt=""
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-6">
+        <div className="col-12 col-sm-12 col-md-6 add-font-family">
           <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingOne">

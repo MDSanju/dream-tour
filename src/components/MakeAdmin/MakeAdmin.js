@@ -42,7 +42,7 @@ const MakeAdmin = () => {
       }}
     >
       <Card sx={{ marginTop: "80px", marginBottom: "100px", height: "500px" }}>
-        <Box sx={{ background: "#f2f2f2", height: "500px" }}>
+        <Box sx={{ background: "#EBF2CC", height: "500px" }}>
           <CardContent sx={{ padding: "40px 70px" }}>
             <Box
               sx={{
@@ -57,7 +57,7 @@ const MakeAdmin = () => {
                 alt=""
                 style={{ width: "100px" }}
               />
-              <h2>Make Admin</h2>
+              <h2 className="mt-2 add-font-family">Make Admin</h2>
               <br />
               <br />
               <form onSubmit={handleSubmit(onSubmit)}>

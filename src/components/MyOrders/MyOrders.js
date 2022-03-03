@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import HashLoader from "react-spinners/HashLoader";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "@mui/material";
 
 // show only the user's placed orders by this component
 const MyOrders = () => {
@@ -52,19 +54,24 @@ const MyOrders = () => {
   };
   // show only user's orders on UI
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2 className="fw-bold mt-5 mb-4">My All Orders!</h2>
+    <div
+      style={{ textAlign: "center", marginTop: "75px", marginBottom: "100px" }}
+    >
+      <h2 className="add-font-family mt-5 mb-4">My All Orders!</h2>
       {orders.length ? (
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
             {orders.map((order) => (
               <div key={order._id} order={order}>
                 <div className="col">
-                  <div style={{ height: "420px" }} className="card card-custom">
+                  <div
+                    style={{ height: "420px", background: "#EBF2CC" }}
+                    className="card card-custom"
+                  >
                     <div
                       className="card-header"
                       style={{
-                        backgroundColor: "#003580",
+                        backgroundColor: "#10ac84",
                         color: "white",
                         fontWeight: "600",
                       }}
@@ -73,23 +80,25 @@ const MyOrders = () => {
                     </div>
                     <div className="card-body">
                       <h5 className="card-text text-start p-2">
-                        Service: {order.title}
+                        <b>Service:</b> {order.title}
                       </h5>
                       <h5 className="card-text text-start p-2">
-                        User Name: {order.name}
+                        <b>User Name:</b> {order.name}
                       </h5>
                       <h5 className="card-text text-start mb-3 p-2">
-                        Address: {order.address}
+                        <b>Address:</b> {order.address}
                       </h5>
                     </div>
                     <div className="mb-4">
-                      <button
+                      <Button
                         onClick={() => handleDeleteOrder(order._id)}
-                        className="btn btn-danger mx-auto"
+                        className="mx-auto"
                         style={{ width: "175px" }}
+                        variant="outlined"
+                        startIcon={<DeleteIcon />}
                       >
                         Cancel Order
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>

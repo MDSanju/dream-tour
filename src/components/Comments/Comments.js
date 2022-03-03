@@ -4,10 +4,9 @@ import useAuth from "../../hooks/useAuth";
 import HashLoader from "react-spinners/HashLoader";
 import InputUnstyled from "@mui/base/InputUnstyled";
 import { styled } from "@mui/system";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Card, CardContent, TextField } from "@mui/material";
 import { AccountCircle } from "@material-ui/icons";
 import SendIcon from "@material-ui/icons/Send";
-import LoadingButton from "@mui/lab/LoadingButton";
 import "./Comments.css";
 
 const blue = {
@@ -123,11 +122,11 @@ const Comments = () => {
   // use react hook form for comment section
   return (
     <div className="container" style={{ marginTop: "125px" }}>
-      <h2 className="mb-5 fw-bold text-center">
+      <h2 className="mb-5 text-center add-font-family">
         Please Write Your Comment Down Below!
       </h2>
       <br />
-      <br />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <CustomInput
           defaultValue={user.displayName}
@@ -147,17 +146,6 @@ const Comments = () => {
         </Box>
 
         <br />
-        {/* <LoadingButton
-          onClick={handleClick}
-          endIcon={<SendIcon />}
-          loading={loading}
-          loadingPosition="end"
-          type="submit"
-          variant="contained"
-          sx={{ float: "right" }}
-        >
-          Comment
-        </LoadingButton> */}
 
         <Button
           type="submit"
@@ -167,49 +155,33 @@ const Comments = () => {
         >
           Comment
         </Button>
-
-        {/* <input
-          className="form-control"
-          defaultValue={user.displayName}
-          {...register("name", { required: true })}
-          placeholder="Write your Name"
-        /> */}
-
-        {/* <textarea
-          className="form-control mt-3 mb-1"
-          style={{ height: "125px" }}
-          {...register("comment", { required: true })}
-          placeholder="Add a public comment..."
-        />
-
-        {errors.description && (
-          <span className="text-danger">This field is required</span>
-        )}
-
-        <input
-          className="btn btn-primary w-100 mt-3 mx-auto"
-          type="submit"
-          value="Comment"
-        /> */}
       </form>
       <br />
       <br />
       <br />
       {/* show comments on UI */}
       {comments.length ? (
-        <div className="text-start mt-5">
+        <div className="text-start mt-5 add-font-family">
           <h3 className="mb-3">{comments.length} Comments:</h3>
           {comments.map((comment) => (
             <div key={comment._id}>
-              <div className="row d-flex align-items-center">
-                <div className="col-12 col-sm-10 col-md-10">
-                  <small style={{ fontSize: "14px" }} className="fw-bold">
-                    {comment.name}
-                  </small>
-                  <br />
-                  <small style={{ fontSize: "14px" }}>{comment.comment}</small>
-                </div>
-                {/* <div className="col-12 col-sm-4 col-md-4">
+              <Card>
+                <Box sx={{ background: "#EBF2CC" }}>
+                  <CardContent>
+                    <div className="row d-flex align-items-center">
+                      <div className="col-12 col-sm-10 col-md-10">
+                        <AccountCircle
+                          sx={{ color: "action.active", mr: 1, my: 0.7 }}
+                        />
+                        <small style={{ fontSize: "14px" }} className="fw-bold">
+                          {comment.name}
+                        </small>
+                        <br />
+                        <small style={{ fontSize: "14px" }}>
+                          {comment.comment}
+                        </small>
+                      </div>
+                      {/* <div className="col-12 col-sm-4 col-md-4">
                 <div
                   className="btn-group mt-1"
                   role="group"
@@ -223,7 +195,10 @@ const Comments = () => {
                   </button>
                 </div>
               </div> */}
-              </div>
+                    </div>
+                  </CardContent>
+                </Box>
+              </Card>
               <br />
             </div>
           ))}

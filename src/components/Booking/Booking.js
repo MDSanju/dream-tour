@@ -35,7 +35,7 @@ const Booking = () => {
   // doing map and giving data to BookService by props drilling
   return (
     <div style={{ marginTop: "90px" }}>
-      <h2 className="container mt-5 fw-bold mb-5 text-center">
+      <h2 className="container mt-5 mb-5 text-center add-font-family">
         Please Book Your Favourite Tour Service!
       </h2>
       {services.length ? (

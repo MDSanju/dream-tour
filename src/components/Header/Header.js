@@ -37,6 +37,7 @@ const Header = () => {
                 activeStyle={{ color: "white" }}
                 aria-current="page"
                 to="/home"
+                style={{ fontWeight: "500" }}
               >
                 Home
               </NavLink>
@@ -45,6 +46,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/add/service"
+                  style={{ fontWeight: "500" }}
                 >
                   Add A New Service
                 </NavLink>
@@ -54,6 +56,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/manageAllOrders"
+                  style={{ fontWeight: "500" }}
                 >
                   Manage All Orders
                 </NavLink>
@@ -62,6 +65,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/myOrders"
+                  style={{ fontWeight: "500" }}
                 >
                   My Orders
                 </NavLink>
@@ -71,6 +75,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/makeAdmin"
+                  style={{ fontWeight: "500" }}
                 >
                   Make Admin
                 </NavLink>
@@ -79,6 +84,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/contactUs"
+                  style={{ fontWeight: "500" }}
                 >
                   Contact Us
                 </NavLink>
@@ -121,6 +127,7 @@ const Header = () => {
                   className="nav-link"
                   activeStyle={{ color: "white" }}
                   to="/login"
+                  style={{ fontWeight: "500" }}
                 >
                   Login
                 </NavLink>
