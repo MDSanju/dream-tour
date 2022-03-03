@@ -13,7 +13,7 @@ const MakeAdmin = () => {
     if (proceed) {
       const user = data;
       console.log(user);
-      fetch("http://localhost:5000/users/admin", {
+      fetch("https://obscure-springs-93029.herokuapp.com/users/admin", {
         method: "PUT",
         headers: {
           "content-type": "application/json",

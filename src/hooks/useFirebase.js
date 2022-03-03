@@ -64,7 +64,7 @@ const useFirebase = () => {
 
   const upsertUserToDb = (email, displayName) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://obscure-springs-93029.herokuapp.com/users", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -75,7 +75,7 @@ const useFirebase = () => {
 
   // Admin select
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://obscure-springs-93029.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
