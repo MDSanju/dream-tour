@@ -1,8 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Footer.css";
 
 // Footer Component
 const Footer = () => {
+  const history = useHistory();
+
+  const contactAgency = () => {
+    history.push("/contactUs");
+  };
   return (
     <div className="footer-start" style={{ marginTop: "75px" }}>
       <footer>
@@ -36,7 +42,7 @@ const Footer = () => {
               <li>
                 <a href="#">Home</a>
               </li>
-              <li>
+              <li onClick={contactAgency}>
                 <a href="#">Contact us</a>
               </li>
               <li>

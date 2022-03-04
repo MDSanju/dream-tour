@@ -1,15 +1,12 @@
 import React, { useRef, useState } from "react";
 import SendIcon from "@material-ui/icons/Send";
-import { Card } from "@material-ui/core";
 import {
   Button,
-  CardContent,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Slide,
   TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
