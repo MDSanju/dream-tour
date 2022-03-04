@@ -107,14 +107,16 @@ const ManageAllOrders = () => {
                       </h5>
                     </div>
                     <div className="mb-4">
-                      <Button
-                        onClick={() => handleUpdateStatus(order._id)}
-                        className="mx-1"
-                        variant="contained"
-                        style={{ width: "150px", marginBottom: "5px" }}
-                      >
-                        Approved
-                      </Button>
+                      {order.status === "Pending" && (
+                        <Button
+                          onClick={() => handleUpdateStatus(order._id)}
+                          className="mx-1"
+                          variant="contained"
+                          style={{ width: "150px", marginBottom: "5px" }}
+                        >
+                          Approve
+                        </Button>
+                      )}
                       <Button
                         onClick={() => handleDeleteOrder(order._id)}
                         className="mx-1"
@@ -122,7 +124,7 @@ const ManageAllOrders = () => {
                         variant="outlined"
                         startIcon={<DeleteIcon />}
                       >
-                        Cancel
+                        {order.status === "Pending" ? "Cancel" : "Delete"}
                       </Button>
                     </div>
                   </div>

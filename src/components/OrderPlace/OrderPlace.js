@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { Button, TextField } from "@mui/material";
 import SendIcon from "@material-ui/icons/Send";
+import HashLoader from "react-spinners/HashLoader";
 import "./OrderPlace.css";
 
 // order place form component
@@ -21,12 +22,7 @@ const OrderPlace = () => {
   }, [serviceId]);
 
   const { user } = useAuth();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     const submitOrder = {
       name: user.displayName,
@@ -58,70 +54,83 @@ const OrderPlace = () => {
 
   // order place with react hook form
   return (
-    <div style={{ marginTop: "115px", marginBottom: "135px" }}>
-      <div className="order-booking-page">
-        <div class="wrapper">
-          <div class="checkout_wrapper">
-            <div class="product_info">
-              <img src={service.img} alt="product" />
-              <div class="order-content">
-                <h3>{service.title}</h3>
+    <div className="place-an-order-page">
+      {Object.keys(service).length === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "40px",
+          }}
+        >
+          <HashLoader color={"#140b5c"} size={60} />
+        </div>
+      ) : (
+        <div className="order-booking-page">
+          <div class="wrapper">
+            <div class="checkout_wrapper">
+              <div class="product_info">
+                <img src={service.img} alt="product" />
+                <div class="order-content">
+                  <h3>{service.title}</h3>
+                </div>
               </div>
-            </div>
-            <div class="checkout_form">
-              <p>Place An Order</p>
-              <div class="order-details">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <TextField
-                    type="text"
-                    id="outlined-textarea"
-                    label="Address"
-                    placeholder="Write your address..."
-                    multiline
-                    fullWidth
-                    {...register("address")}
-                    required
-                  />
-                  <br />
-                  <br />
-                  <TextField
-                    type="text"
-                    id="outlined-textarea"
-                    label="City"
-                    placeholder="Write your city..."
-                    multiline
-                    fullWidth
-                    {...register("city")}
-                    required
-                  />
-                  <br />
-                  <br />
-                  <TextField
-                    type="text"
-                    id="outlined-textarea"
-                    label="Phone"
-                    placeholder="Contact No..."
-                    multiline
-                    fullWidth
-                    {...register("phone")}
-                    required
-                  />
-                  <br />
-                  <br />
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{ float: "right" }}
-                    endIcon={<SendIcon />}
-                  >
-                    Order
-                  </Button>
-                </form>
+              <div class="checkout_form">
+                <p>Place An Order</p>
+                <div class="order-details">
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <TextField
+                      type="text"
+                      id="outlined-textarea"
+                      label="Address"
+                      placeholder="Write your address..."
+                      multiline
+                      fullWidth
+                      {...register("address")}
+                      required
+                    />
+                    <br />
+                    <br />
+                    <TextField
+                      type="text"
+                      id="outlined-textarea"
+                      label="City"
+                      placeholder="Write your city..."
+                      multiline
+                      fullWidth
+                      {...register("city")}
+                      required
+                    />
+                    <br />
+                    <br />
+                    <TextField
+                      type="text"
+                      id="outlined-textarea"
+                      label="Phone"
+                      placeholder="Contact No..."
+                      multiline
+                      fullWidth
+                      {...register("phone")}
+                      required
+                    />
+                    <br />
+                    <br />
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      sx={{ float: "right" }}
+                      className="order_btn"
+                      endIcon={<SendIcon />}
+                    >
+                      Order
+                    </Button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

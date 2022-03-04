@@ -90,15 +90,17 @@ const MyOrders = () => {
                       </h5>
                     </div>
                     <div className="mb-4">
-                      <Button
-                        onClick={() => handleDeleteOrder(order._id)}
-                        className="mx-auto"
-                        style={{ width: "175px" }}
-                        variant="outlined"
-                        startIcon={<DeleteIcon />}
-                      >
-                        Cancel Order
-                      </Button>
+                      {order.status === "Pending" && (
+                        <Button
+                          onClick={() => handleDeleteOrder(order._id)}
+                          className="mx-auto"
+                          style={{ width: "175px" }}
+                          variant="outlined"
+                          startIcon={<DeleteIcon />}
+                        >
+                          Cancel Order
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
