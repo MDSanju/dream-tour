@@ -67,17 +67,17 @@ const OrderPlace = () => {
         </div>
       ) : (
         <div className="order-booking-page">
-          <div class="wrapper">
-            <div class="checkout_wrapper">
-              <div class="product_info">
+          <div className="wrapper">
+            <div className="checkout_wrapper">
+              <div className="product_info">
                 <img src={service.img} alt="product" />
-                <div class="order-content">
+                <div className="order-content">
                   <h3>{service.title}</h3>
                 </div>
               </div>
-              <div class="checkout_form">
+              <div className="checkout_form">
                 <p>Place An Order</p>
-                <div class="order-details">
+                <div className="order-details">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <TextField
                       type="text"
