@@ -141,6 +141,7 @@ const Comments = () => {
             label="Add a comment..."
             variant="standard"
             sx={{ width: "100%" }}
+            multiline
             {...register("comment", { required: true })}
           />
         </Box>
