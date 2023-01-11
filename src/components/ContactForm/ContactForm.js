@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import SendIcon from "@material-ui/icons/Send";
 import {
   Button,
